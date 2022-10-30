@@ -65,11 +65,14 @@ var fight = function () {
     }
 
     // if player chooses to skip
-  } else if (promptFight === "skip" || promptFight === "SKIP" || promptFight === "Skip") {
+  } else if (
+    promptFight === "skip" ||
+    promptFight === "SKIP" ||
+    promptFight === "Skip"
+  ) {
     window.alert(playerName + " has chosen to skip the fight!");
   } else {
-    window.alert("You need to choose a valid option. Try again!")
-  }
+    window.alert("You need to choose a valid option. Try again!");
   }
 
   // Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
