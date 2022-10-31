@@ -132,4 +132,7 @@ var fight = function (enemyName) {
   }
 };
 
-fight();
+// Calls the fight function as long as there are enemy players to fight
+for (var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
