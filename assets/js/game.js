@@ -113,7 +113,7 @@ var startGame = function () {
       break;
     }
   }
-  startGame();
+  endGame();
 };
 
 // Function to end the entire game
@@ -137,4 +137,5 @@ var endGame = function () {
   }
 };
 
+// Start game when page first loads
 startGame();
