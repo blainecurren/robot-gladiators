@@ -128,12 +128,12 @@ var endGame = function () {
     window.alert("Game has ended. Let's see how you did!");
   }
 
-  var playAgainConfirm = window.confirm("Would you like to play again?s");
+  var playAgainConfirm = window.confirm("Would you like to play again?");
 
   if (playAgainConfirm) {
     startGame();
   } else {
-    window.alert("Thank you for playing RObot Gladiators! Come back soon!");
+    window.alert("Thank you for playing Robot Gladiators! Come back soon!");
   }
 };
 
