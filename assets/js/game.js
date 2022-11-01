@@ -4,13 +4,13 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
-for (var i = 0; i < enemyNames.length; i++) {}
 
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 var fight = function (enemyName) {
-  while (playerHealth > 0 && enemyHealth < 0) {
+  while (playerHealth > 0 && enemyHealth > 0) {
+    //ask player if they want to fight / skip
     var promptFight = window.prompt(
       "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to continue."
     );
@@ -21,7 +21,7 @@ var fight = function (enemyName) {
       promptFight === "FIGHT" ||
       promptFight === "Fight"
     ) {
-      // remove enemy's health by substracting the amount set in the playerAttack variable
+      // remove enemy's health by subtracting the amount set in the playerAttack variable
       enemyHealth = enemyHealth - playerAttack;
       console.log(
         playerName +
@@ -49,11 +49,11 @@ var fight = function (enemyName) {
         enemyName +
           " attacked " +
           playerName +
-          " ." +
+          ". " +
           playerName +
           " now has " +
           playerHealth +
-          "health remaining."
+          " health remaining."
       );
 
       // check player's health
@@ -131,5 +131,7 @@ var fight = function (enemyName) {
 
 // Calls the fight function as long as there are enemy players to fight
 for (var i = 0; i < enemyNames.length; i++) {
-  fight(enemyNames[i]);
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+  fight(pickedEnemyName);
 }
