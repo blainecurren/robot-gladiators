@@ -86,6 +86,13 @@ var fight = function (enemyName) {
 
 // Calls the fight function as long as there are enemy players to fight
 var startGame = function () {
+  debugger;
+
+  // reset player stats
+  playerHealth = 100;
+  playerAttack = 10;
+  playerMoney = 10;
+
   for (var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
       // let player know what round they are in // array starts at 0 so it needs to have 1 added to it
@@ -97,8 +104,6 @@ var startGame = function () {
       // reset enemyHealth before new fight
       enemyHealth = 50;
 
-      debugger;
-
       // pass the pickedEnemyName variable value into the fight function, where it will assume the value of the enemyName parameter
       fight(pickedEnemyName);
     }
@@ -108,4 +113,28 @@ var startGame = function () {
       break;
     }
   }
+  startGame();
 };
+
+// Function to end the entire game
+var endGame = function () {
+  if (playerHealth > 0) {
+    window.alert(
+      "Great job, you've survived the game! You now have a score of " +
+        playerMoney +
+        "."
+    );
+  } else {
+    window.alert("Game has ended. Let's see how you did!");
+  }
+
+  var playAgainConfirm = window.confirm("Would you like to play again?s");
+
+  if (playAgainConfirm) {
+    startGame();
+  } else {
+    window.alert("Thank you for playing RObot Gladiators! Come back soon!");
+  }
+};
+
+startGame();
