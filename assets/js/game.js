@@ -156,6 +156,31 @@ var shop = function () {
   switch (shopOptionPrompt) {
     case "refill":
       window.alert("Refilling player's health by 20 for 7 dollars");
+
+      //increase health and decrease money
+      playerHealth = playerHealth + 20;
+      playerMoney = playerMoney - 7;
+      break;
+
+    case "upgrade":
+      window.alert("Upgrading player's attack by 6 for 7 dollars");
+
+      // Increase attack and decrease money
+      playerAttack = playerAttack + 6;
+      playerMoney = playerMoney - 7;
+      break;
+
+    case "leave":
+      window.alert("Leaving store.");
+
+      // do nothing, so function ends
+      break;
+    default:
+      window.alert("You did not pick a valid option. Try again.");
+
+      // cal shop() again to force player to pick valid option
+      shop();
+      break;
   }
 };
 
