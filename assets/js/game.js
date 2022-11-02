@@ -8,11 +8,6 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-console.log(enemyNames);
-console.log(enemyNames.length);
-console.log(enemyNames[0]);
-console.log(enemyNames[3]);
-
 var fight = function (enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     //ask player if they want to fight / skip
@@ -54,8 +49,10 @@ var fight = function (enemyName) {
     if (enemyHealth <= 0) {
       window.alert(enemyName + " has died!");
 
-      // award player money
+      // award player money for winning
       playerMoney = playerMoney + 20;
+
+      // leave while() loop since enemy is dead
       break;
     } else {
       window.alert(
@@ -77,6 +74,8 @@ var fight = function (enemyName) {
 
     if (playerHealth <= 0) {
       window.alert(playerName + " has died!");
+
+      //leave while() loop if player is dead
       break;
     } else {
       window.alert(playerName + " still has " + playerHealth + " health left.");
@@ -106,6 +105,11 @@ var startGame = function () {
 
       // pass the pickedEnemyName variable value into the fight function, where it will assume the value of the enemyName parameter
       fight(pickedEnemyName);
+
+      //if we're not at the last enemy in the array
+      if (playerHealth > 0 && i < enemyNames.length - 1) {
+        shop();
+      }
     }
     // if player dies stop the game
     else {
@@ -125,7 +129,7 @@ var endGame = function () {
         "."
     );
   } else {
-    window.alert("Game has ended. Let's see how you did!");
+    window.alert("Game has ended. You lost your robot in battle!");
   }
 
   var playAgainConfirm = window.confirm("Would you like to play again?");
@@ -135,6 +139,10 @@ var endGame = function () {
   } else {
     window.alert("Thank you for playing Robot Gladiators! Come back soon!");
   }
+};
+
+var shop = function () {
+  console.log("entered the shop");
 };
 
 // Start game when page first loads
