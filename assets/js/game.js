@@ -108,6 +108,12 @@ var startGame = function () {
 
       //if we're not at the last enemy in the array
       if (playerHealth > 0 && i < enemyNames.length - 1) {
+        //ask if player wants to use the store before next round
+        var storeConfirm = window.confirm(
+          "The fight is over, visit the store before the next round?"
+        );
+
+        //if yes, take them to the store
         shop();
       }
     }
@@ -142,7 +148,15 @@ var endGame = function () {
 };
 
 var shop = function () {
-  console.log("entered the shop");
+  var shopOptionPrompt = window.prompt(
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVe the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+  );
+
+  // Use switch to carry out action
+  switch (shopOptionPrompt) {
+    case "refill":
+      window.alert("Refilling player's health by 20 for 7 dollars");
+  }
 };
 
 // Start game when page first loads
