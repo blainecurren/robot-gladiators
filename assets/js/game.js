@@ -114,12 +114,8 @@ var fight = function (enemy) {
 
 // Calls the fight function as long as there are enemy players to fight
 var startGame = function () {
-  debugger;
-
-  // reset player stats
-  playerInfo.health = 100;
-  playerInfo.attack = 10;
-  playerInfo.money = 10;
+  // reset method declared in playerInfo object
+  playerInfo.reset();
 
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
