@@ -58,9 +58,9 @@ var fight = function (enemy) {
     console.log(
       playerInfo.name +
         " attacked " +
-        enemyName +
+        enemy.name +
         ". " +
-        enemyName +
+        enemy.name +
         " now has " +
         enemy.health +
         " health remaining."
@@ -68,7 +68,7 @@ var fight = function (enemy) {
 
     // check enemy's health
     if (enemy.health <= 0) {
-      window.alert(enemyName + " has died!");
+      window.alert(enemy.name + " has died!");
 
       // award player money for winning
       playerInfo.money = playerInfo.money + 20;
@@ -77,14 +77,14 @@ var fight = function (enemy) {
       break;
     } else {
       window.alert(
-        enemyName + " still has " + enemy.health + " health remaining."
+        enemy.name + " still has " + enemy.health + " health remaining."
       );
     }
-    var damage = randomNumber(enemyAttack - 3, enemyAttack);
+    var damage = randomNumber(enemy.attack - 3, enemy.attack);
     playerInfo.health = Math.max(0, playerInfo.health - damage);
 
     console.log(
-      enemyName +
+      enemy.name +
         " attacked " +
         playerInfo.name +
         ". " +
@@ -121,13 +121,13 @@ var startGame = function () {
       // let player know what round they are in // array starts at 0 so it needs to have 1 added to it
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
-      // pick new enemy to fight based on the index of the enemyNames array
+      // pick new enemy to fight based on the index of the enemy.names array
       var pickedEnemyObj = enemyInfo[i];
 
       // reset enemy.health before new fight
       pickedEnemyObj.health = randomNumber(40, 60);
 
-      // pass the pickedEnemyName variable value into the fight function, where it will assume the value of the enemyName parameter
+      // pass the pickedenemy.name variable value into the fight function, where it will assume the value of the enemy.name parameter
       fight(pickedEnemyObj);
 
       //if we're not at the last enemy in the array
