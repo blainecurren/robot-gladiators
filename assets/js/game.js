@@ -10,6 +10,11 @@ var playerInfo = {
   health: 100,
   attack: 10,
   money: 10,
+  reset: function () {
+    this.health = 100;
+    this.money = 10;
+    this.attack = 10;
+  },
 };
 
 var enemyInfo = [
