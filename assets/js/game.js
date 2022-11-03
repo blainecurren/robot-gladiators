@@ -28,7 +28,7 @@ var randomNumber = function (min, max) {
 };
 
 var fight = function (enemy) {
-  while (playerInfo.health > 0 && enemyHealth > 0) {
+  while (playerInfo.health > 0 && enemy.health > 0) {
     //ask player if they want to fight / skip
     var promptFight = window.prompt(
       "Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to continue."
@@ -54,7 +54,7 @@ var fight = function (enemy) {
     }
 
     // if player chooses to fight, then fight
-    enemyHealth = enemyHealth - playerInfo.attack;
+    enemy.health = enemy.health - playerInfo.attack;
     console.log(
       playerInfo.name +
         " attacked " +
@@ -62,12 +62,12 @@ var fight = function (enemy) {
         ". " +
         enemyName +
         " now has " +
-        enemyHealth +
+        enemy.health +
         " health remaining."
     );
 
     // check enemy's health
-    if (enemyHealth <= 0) {
+    if (enemy.health <= 0) {
       window.alert(enemyName + " has died!");
 
       // award player money for winning
@@ -77,7 +77,7 @@ var fight = function (enemy) {
       break;
     } else {
       window.alert(
-        enemyName + " still has " + enemyHealth + " health remaining."
+        enemyName + " still has " + enemy.health + " health remaining."
       );
     }
     var damage = randomNumber(enemyAttack - 3, enemyAttack);
@@ -124,7 +124,7 @@ var startGame = function () {
       // pick new enemy to fight based on the index of the enemyNames array
       var pickedEnemyObj = enemyInfo[i];
 
-      // reset enemyHealth before new fight
+      // reset enemy.health before new fight
       pickedEnemyObj.health = randomNumber(40, 60);
 
       // pass the pickedEnemyName variable value into the fight function, where it will assume the value of the enemyName parameter
