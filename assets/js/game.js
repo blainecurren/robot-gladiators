@@ -8,6 +8,13 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+// function to generate a random numeric value
+var randomNumber = function (min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value;
+};
+
 var fight = function (enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     //ask player if they want to fight / skip
@@ -59,8 +66,9 @@ var fight = function (enemyName) {
         enemyName + " still has " + enemyHealth + " health remaining."
       );
     }
-
-    playerHealth = playerHealth - enemyAttack;
+    var damage = randomNumber(enemyAttack - 3, enemyAttack);
+    playerHealth = Math.max(0, playerHealth - damage);
+    
     console.log(
       enemyName +
         " attacked " +
@@ -101,7 +109,7 @@ var startGame = function () {
       var pickedEnemyName = enemyNames[i];
 
       // reset enemyHealth before new fight
-      enemyHealth = 50;
+      enemyHealth = randomNumber(40, 60);
 
       // pass the pickedEnemyName variable value into the fight function, where it will assume the value of the enemyName parameter
       fight(pickedEnemyName);
