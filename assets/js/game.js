@@ -27,7 +27,7 @@ var randomNumber = function (min, max) {
   return value;
 };
 
-var fight = function (enemyName) {
+var fight = function (enemy) {
   while (playerInfo.health > 0 && enemyHealth > 0) {
     //ask player if they want to fight / skip
     var promptFight = window.prompt(
