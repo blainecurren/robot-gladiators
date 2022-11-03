@@ -1,7 +1,9 @@
-var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
-var playerAttack = 10;
-var playerMoney = 10;
+var playerInfo = {
+  name: window.prompt("What is your robot's name?"),
+  health: 100,
+  attack: 10,
+  money: 10,
+};
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 
@@ -68,7 +70,7 @@ var fight = function (enemyName) {
     }
     var damage = randomNumber(enemyAttack - 3, enemyAttack);
     playerHealth = Math.max(0, playerHealth - damage);
-    
+
     console.log(
       enemyName +
         " attacked " +
