@@ -197,20 +197,14 @@ var shop = function () {
 
   // Use switch to carry out action
   switch (shopOptionPrompt) {
+    case "REFILL":
     case "refill":
-      window.alert("Refilling player's health by 20 for 7 dollars");
-
-      //increase health and decrease money
-      playerInfo.health = playerInfo.health + 20;
-      playerInfo.money = playerInfo.money - 7;
+      playerInfo.refillHealth();
       break;
 
+    case "UPGRADE":
     case "upgrade":
-      window.alert("Upgrading player's attack by 6 for 7 dollars");
-
-      // Increase attack and decrease money
-      playerInfo.attack = playerInfo.attack + 6;
-      playerInfo.money = playerInfo.money - 7;
+      playerInfo.upgradeAttack();
       break;
 
     case "leave":
