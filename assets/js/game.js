@@ -15,6 +15,14 @@ var playerInfo = {
     this.money = 10;
     this.attack = 10;
   },
+  refillHealth: function () {
+    this.health += 20;
+    this.money -= 7;
+  },
+  upgradeAttack: function () {
+    this.attack += 6;
+    this.money -= 7;
+  },
 };
 
 var enemyInfo = [
