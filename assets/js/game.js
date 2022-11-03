@@ -189,13 +189,24 @@ var shop = function () {
       break;
   }
 };
+
+var getPlayerName = function () {
+  var name = "";
+
+  while (name === "") {
+    name = prompt("What is your robot's name?");
+  }
+
+  console.log("Your robot's name is " + name);
+  return name;
+};
 // END OF GAME FUNCTIONS
 
 //GAME INFO / VARIABLES
 
 // Start game when page first loads
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
