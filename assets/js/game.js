@@ -8,17 +8,17 @@ var playerInfo = {
 var enemyInfo = [
   {
     name: "Roborto",
-    attack: 12
+    attack: 12,
   },
   {
     name: "Amy Android",
-    attack: 13
+    attack: 13,
   },
   {
     name: "Robo Trumble",
-    attack: 14
-  }
-]
+    attack: 14,
+  },
+];
 
 // function to generate a random numeric value
 var randomNumber = function (min, max) {
@@ -116,22 +116,22 @@ var startGame = function () {
   playerInfo.attack = 10;
   playerInfo.money = 10;
 
-  for (var i = 0; i < enemyNames.length; i++) {
+  for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
       // let player know what round they are in // array starts at 0 so it needs to have 1 added to it
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
       // pick new enemy to fight based on the index of the enemyNames array
-      var pickedEnemyName = enemyNames[i];
+      var pickedEnemyObj = enemyInfo[i];
 
       // reset enemyHealth before new fight
-      enemyHealth = randomNumber(40, 60);
+      pickedEnemyObj.health = randomNumber(40, 60);
 
       // pass the pickedEnemyName variable value into the fight function, where it will assume the value of the enemyName parameter
-      fight(pickedEnemyName);
+      fight(pickedEnemyObj);
 
       //if we're not at the last enemy in the array
-      if (playerInfo.health > 0 && i < enemyNames.length - 1) {
+      if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
         //ask if player wants to use the store before next round
         var storeConfirm = window.confirm(
           "The fight is over, visit the store before the next round?"
