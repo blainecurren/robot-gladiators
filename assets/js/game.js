@@ -8,15 +8,15 @@ var playerInfo = {
 var enemyInfo = [
   {
     name: "Roborto",
-    attack: 12,
+    attack: randomNumber(10, 14),
   },
   {
     name: "Amy Android",
-    attack: 13,
+    attack: randomNumber(10, 14),
   },
   {
     name: "Robo Trumble",
-    attack: 14,
+    attack: randomNumber(10, 14),
   },
 ];
 
