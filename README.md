@@ -11,4 +11,4 @@
 * Javascript
 
 ## Contribution
-Made with ❤️ by [Blaine Curren]
+Made with ❤️ by [Blaine Curren](https://github.com/blainecurren)
